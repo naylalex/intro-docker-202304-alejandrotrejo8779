@@ -10,15 +10,12 @@ services:
             - POSTGRES_PASSWORD=wrds#2023
             networks:
             - wordsmithnet
-
-services:
         words:
             build: ./words/
             ports:
             - 8080:8081
             networks:
             - wordsmithnet
-services:
         web:
             build: ./web/
             ports:
