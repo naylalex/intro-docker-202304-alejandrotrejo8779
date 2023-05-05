@@ -1,0 +1,32 @@
+
+version: "3"
+
+services:
+        db:
+            build: ./db/
+            ports: 
+            - 5434:5432
+            environment:
+            - POSTGRES_PASSWORD=wrds#2023
+            networks:
+            - wordsmithnet
+        words:
+            build: ./words/
+            ports:
+            - 8080:8081
+            networks:
+            - wordsmithnet
+        web:
+            build: ./web/
+            ports:
+            - 80:8082
+            networks:
+            - wordsmithnet
+
+
+networks:
+  wordsmithnet:
+    name: wordsmithnet
+
+
+
